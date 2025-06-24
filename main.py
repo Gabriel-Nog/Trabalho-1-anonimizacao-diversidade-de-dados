@@ -57,7 +57,7 @@ def contar_ocorrencias_localidade_data(df):
     return df
 
 # Aplica generalização incremental até que todas as classes satisfaçam o k-anonimato
-def generalizar_ate_k_anonimato(df, k, nivel_maximo=10):
+def generalizar_ate_k_anonimato(df, k, nivel_maximo=4):
     df['localidade'] = df['localidade'].fillna('').astype(str)
     df['data_nascimento'] = df['data_nascimento'].fillna('').astype(str)
     nivel = 0
@@ -104,7 +104,7 @@ def calcular_precisao(df_original, df_generalizado):
     return precisao
 
     # Aplica k-anonimato + l-diversidade com generalização conjunta
-def aplicar_l_diversidade_com_generalizacao(df, k, l, nivel_maximo=10):
+def aplicar_l_diversidade_com_generalizacao(df, k, l, nivel_maximo=4):
     df['localidade'] = df['localidade'].fillna('').astype(str)
     df['data_nascimento'] = df['data_nascimento'].fillna('').astype(str)
     if 'raca_cor' in df.columns:
